@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Terrarium | Übersicht</title>
+  <title>{{ $page_title or "TerraPiPy" }}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -94,8 +94,8 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Übersicht
-        <small>Alle Terrarien auf einer Seite</small>
+        {{ $page_title or "TerraPiPy" }}
+        <small>{{ $page_description or null }}</small>
       </h1>
     </section>
 
@@ -129,9 +129,5 @@ desired effect
 <!-- AdminLTE App -->
 <script src="{{ asset("/bower_components/AdminLTE/dist/js/app.min.js") }}"></script>
 
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. Slimscroll is required when using the
-     fixed layout. -->
 </body>
 </html>

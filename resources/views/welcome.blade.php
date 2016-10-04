@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout', ['page_title' => "Übersicht", 'page_description' => "aller Terrarien"])
 
 @section('content')
 	<div class="row">
