@@ -1,5 +1,5 @@
 # TerraPiPy Web
-**TerraPiPy Web** is a modern and mobile ready web interface for the [TerraPiPy](https://github.com/spech66/terrapipy) system. 
+**TerraPiPy Web** is a modern and mobile ready web interface for the [TerraPiPy](https://github.com/spech66/terrapipy) system. ![Logo](https://github.com/spech66/terrapipy-web/blob/master/public/images/logo.png)
 
 TerraPiPy is the easy to use terrarium/aquarium/vivarium control and **automation** for the Raspberry Pi written in Python. TerraPiPy is short for "Terrarium + Raspberry Pi + Python". The core is written in Python and can be run on a Raspberry Pi to **control** many terrariums, aquariums and vivariums.
 
