@@ -62,3 +62,6 @@ Open your browser and visit http://IP_OR_NAME_FROM_RASPBERRY_PI/terrapipy/
 # Libraries
 TerraPiPy Web makes use of external libraries.
 * [AdminLTE](https://github.com/almasaeed2010/AdminLTE) - AdminLTE - Free Premium Admin control Panel Theme That Is Based On Bootstrap 3.x https://almsaeedstudio.com
+
+# Other
+Logo based on CC0 Image from https://pixabay.com/en/snake-python-serpent-green-reptile-312561/
