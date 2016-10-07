@@ -14,5 +14,4 @@ Currently i work at high preasure to get this complete :smile:
 
 # Libraries
 TerraPiPy Web makes use of external libraries.
-* [Laravel](https://github.com/laravel/laravel) - A PHP Framework For Web Artisans http://laravel.com
 * [AdminLTE](https://github.com/almasaeed2010/AdminLTE) - AdminLTE - Free Premium Admin control Panel Theme That Is Based On Bootstrap 3.x https://almsaeedstudio.com
