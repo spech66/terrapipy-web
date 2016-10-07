@@ -1,0 +1,63 @@
+[2016-10-04 17:35:51] production.ERROR: exception 'RuntimeException' with message 'The only supported ciphers are AES-128-CBC and AES-256-CBC with the correct key lengths.' in /var/www/html/terrapipy/bootstrap/cache/compiled.php:13246
+Stack trace:
+#0 /var/www/html/terrapipy/bootstrap/cache/compiled.php(7723): Illuminate\Encryption\Encrypter->__construct(NULL, 'AES-256-CBC')
+#1 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1374): Illuminate\Encryption\EncryptionServiceProvider->Illuminate\Encryption\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1330): Illuminate\Container\Container->build(Object(Closure), Array)
+#3 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1908): Illuminate\Container\Container->make('encrypter', Array)
+#4 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1431): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#5 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1408): Illuminate\Container\Container->resolveClass(Object(ReflectionParameter))
+#6 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1394): Illuminate\Container\Container->getDependencies(Array, Array)
+#7 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1330): Illuminate\Container\Container->build('App\\Http\\Middle...', Array)
+#8 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1908): Illuminate\Container\Container->make('App\\Http\\Middle...', Array)
+#9 /var/www/html/terrapipy/bootstrap/cache/compiled.php(9865): Illuminate\Foundation\Application->make('App\\Http\\Middle...')
+#10 /var/www/html/terrapipy/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#11 /var/www/html/terrapipy/bootstrap/cache/compiled.php(9855): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#12 /var/www/html/terrapipy/bootstrap/cache/compiled.php(8148): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#13 /var/www/html/terrapipy/bootstrap/cache/compiled.php(8139): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#14 /var/www/html/terrapipy/bootstrap/cache/compiled.php(8130): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#15 /var/www/html/terrapipy/bootstrap/cache/compiled.php(2472): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#16 /var/www/html/terrapipy/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#17 /var/www/html/terrapipy/bootstrap/cache/compiled.php(3213): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#18 /var/www/html/terrapipy/bootstrap/cache/compiled.php(9870): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#19 /var/www/html/terrapipy/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 /var/www/html/terrapipy/bootstrap/cache/compiled.php(9855): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#21 /var/www/html/terrapipy/bootstrap/cache/compiled.php(2416): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#22 /var/www/html/terrapipy/bootstrap/cache/compiled.php(2400): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#23 /var/www/html/terrapipy/public/index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#24 {main}  
+[2016-10-04 17:35:51] production.ERROR: exception 'RuntimeException' with message 'The only supported ciphers are AES-128-CBC and AES-256-CBC with the correct key lengths.' in /var/www/html/terrapipy/bootstrap/cache/compiled.php:13246
+Stack trace:
+#0 /var/www/html/terrapipy/bootstrap/cache/compiled.php(7723): Illuminate\Encryption\Encrypter->__construct(NULL, 'AES-256-CBC')
+#1 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1374): Illuminate\Encryption\EncryptionServiceProvider->Illuminate\Encryption\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1330): Illuminate\Container\Container->build(Object(Closure), Array)
+#3 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1908): Illuminate\Container\Container->make('encrypter', Array)
+#4 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1431): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#5 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1408): Illuminate\Container\Container->resolveClass(Object(ReflectionParameter))
+#6 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1394): Illuminate\Container\Container->getDependencies(Array, Array)
+#7 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1330): Illuminate\Container\Container->build('App\\Http\\Middle...', Array)
+#8 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1908): Illuminate\Container\Container->make('App\\Http\\Middle...', Array)
+#9 /var/www/html/terrapipy/bootstrap/cache/compiled.php(2426): Illuminate\Foundation\Application->make('App\\Http\\Middle...')
+#10 /var/www/html/terrapipy/public/index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#11 {main}  
+[2016-10-04 17:40:35] production.ERROR: exception 'ErrorException' with message 'file_get_contents(/var/www/html/terrapipy/.env): failed to open stream: No such file or directory' in /var/www/html/terrapipy/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php:57
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'file_get_conten...', '/var/www/html/t...', 57, Array)
+#1 /var/www/html/terrapipy/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php(57): file_get_contents('/var/www/html/t...')
+#2 /var/www/html/terrapipy/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php(39): Illuminate\Foundation\Console\KeyGenerateCommand->setKeyInEnvironmentFile('base64:DHwvvHzz...')
+#3 [internal function]: Illuminate\Foundation\Console\KeyGenerateCommand->fire()
+#4 /var/www/html/terrapipy/bootstrap/cache/compiled.php(1272): call_user_func_array(Array, Array)
+#5 /var/www/html/terrapipy/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#6 /var/www/html/terrapipy/vendor/symfony/console/Command/Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 /var/www/html/terrapipy/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 /var/www/html/terrapipy/vendor/symfony/console/Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 /var/www/html/terrapipy/vendor/symfony/console/Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Foundation\Console\KeyGenerateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 /var/www/html/terrapipy/vendor/symfony/console/Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 /var/www/html/terrapipy/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(122): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /var/www/html/terrapipy/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 {main}  
+[2016-10-04 18:43:03] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '<'' in /var/www/html/terrapipy/storage/framework/views/ad4de29e76bec9ed0a70d8292bb47447aee497fe.php:23
+Stack trace:
+#0 {main}  
+[2016-10-04 18:48:15] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '<'' in /var/www/html/terrapipy/storage/framework/views/ad4de29e76bec9ed0a70d8292bb47447aee497fe.php:198
+Stack trace:
+#0 {main}  
