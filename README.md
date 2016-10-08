@@ -22,7 +22,7 @@ TerraPiPy provides easy to use tools for terrarium/aquarium/vivarium control and
 ## Install nginx or apache and PHP
     sudo apt-get install nginx
     sudo /etc/init.d/nginx start
-    sudo apt-get install php5-fpm
+    sudo apt-get install php5-fpm php5-curl
     
     sudo nano /etc/nginx/sites-available/default
 

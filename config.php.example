@@ -32,6 +32,7 @@ $pimaticUsername = 'admin';
 $pimaticPassword = 'XXXXXXXXXXXXXXXXXXX';
 $pimaticHost = '127.0.0.1:80';
 
-// pimatic pages
+// Only include pimatic pages with the keyword in name or id
+$pimaticTerrariumKeyword = 'terrarium';
 
 ?>

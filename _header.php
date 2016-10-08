@@ -81,7 +81,7 @@ SKINS: blue, black, purple, yellow, red, green
       <ul class="sidebar-menu">
         <li class="header">Terrarien</li>
 <?php
-	$terrariumPages = getPages();
+	$terrariumPages = getPages($pimaticUsername, $pimaticPassword, $pimaticHost, $pimaticTerrariumKeyword);
 	foreach($terrariumPages as $id => $name)
 	{
         	echo "<li><a href=\"terrarium.php?id=$id\"><i class=\"fa fa-paw\"></i> <span>$name</span></a></li>";
