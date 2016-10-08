@@ -54,8 +54,11 @@ Change permission for pi user.
 
 ## Install TerraPiPy Web
 
-    cd /var/www
+    cd /var/www/html
     git clone https://github.com/spech66/terrapipy-web.git terrapipy
+    cd terrapipy
+    cp config.php.example config.php
+    nano config.php    
     
 Open your browser and visit http://IP_OR_NAME_FROM_RASPBERRY_PI/terrapipy/
 

@@ -80,5 +80,5 @@ require_once("_header.php") ?>
 		<img src="images/logo.png">
 	</div>
 </div>
-		
+
 <?php require_once("_footer.php") ?>

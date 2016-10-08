@@ -1,0 +1,37 @@
+<?php
+$page = $_SERVER['PHP_SELF'];
+//------------------------------------------------------------------------------
+// Error Reporting
+//------------------------------------------------------------------------------
+// For apache
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+//error_reporting(E_ALL &~ (E_NOTICE|E_STRICT));
+//error_reporting(E_ERROR);
+
+// For nginx
+// 
+
+//------------------------------------------------------------------------------
+// Include protection
+//------------------------------------------------------------------------------
+if(basename($page) == basename(__FILE__))
+{
+	header('Location: /');
+	exit;
+}
+
+//------------------------------------------------------------------------------
+// Configuration
+//------------------------------------------------------------------------------
+// Seconds for automatic page refresh. 0 for no automatic refresh.
+$autoRefresh = '30';
+
+// pimatic data
+$pimaticUsername = 'admin';
+$pimaticPassword = 'XXXXXXXXXXXXXXXXXXX';
+$pimaticHost = '127.0.0.1:80';
+
+// pimatic pages
+
+?>

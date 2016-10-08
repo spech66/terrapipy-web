@@ -1,9 +1,22 @@
 <?php
-ini_set('display_errors', 'On');
 if(basename($_SERVER['PHP_SELF']) == basename(__FILE__))
 {
 	header('Location: /');
 	exit;
+}
+
+if(!file_exists('config.php'))
+{
+	echo "config.php is missing. Please configure TerraPiPy first!";
+	exit;
+}
+
+require_once("config.php");
+require_once("includes/pimatic.php");
+
+if(isset($autoRefresh) && $autoRefresh > 0)
+{
+	header("Refresh: $autoRefresh; url=$page");
 }
 ?>
 
@@ -67,10 +80,13 @@ SKINS: blue, black, purple, yellow, red, green
       </ul>
       <ul class="sidebar-menu">
         <li class="header">Terrarien</li>
-        <li><a href="terrarium.php?id=1"><i class="fa fa-paw"></i> <span>Terrarium 1</span></a></li>
-        <li><a href="terrarium.php?id=2"><i class="fa fa-paw"></i> <span>Terrarium 1</span></a></li>
-        <li><a href="terrarium.php?id=3"><i class="fa fa-paw"></i> <span>Terrarium 3</span></a></li>
-        <li><a href="terrarium.php?id=4"><i class="fa fa-paw"></i> <span>Terrarium 4</span></a></li>
+<?php
+	$terrariumPages = getPages();
+	foreach($terrariumPages as $id => $name)
+	{
+        	echo "<li><a href=\"terrarium.php?id=$id\"><i class=\"fa fa-paw\"></i> <span>$name</span></a></li>";
+	}
+?>
       </ul>
       <ul class="sidebar-menu">
         <li class="header">Steuerung</li>
