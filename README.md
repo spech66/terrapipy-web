@@ -1,13 +1,16 @@
-# TerraPiPy Web
-**CURRENT STATUS: GUI PROTOTYPE**
+# TerraPiPy ![Logo](https://github.com/spech66/terrapipy-web/blob/master/images/logo.png)
+TerraPiPy is a collection of different projects to create easy to use tools for terrarium/aquarium/vivarium control and **automation** for the Raspberry Pi. TerraPiPy is short for "Terrarium + Raspberry Pi + Python" because snakes are cool (and some parts are written in Python).
+The system can be run on a Raspberry Pi to setup, monitor and **control** [pimatic](https://github.com/pimatic/pimatic) to use many terrariums, aquariums and vivariums. A website is provided as a dashboard and the info tool provides data providers for other systems.
 
-**TerraPiPy Web** is a modern and mobile ready web interface for the [TerraPiPy](https://github.com/spech66/terrapipy) system. ![Logo](https://github.com/spech66/terrapipy-web/blob/master/images/logo.png)
+:sunny: :cloud: :crescent_moon: :arrow_right: :zap: :arrow_right: :snake: :tropical_fish: :turtle: :frog: :arrow_right: :heart_eyes:
 
-TerraPiPy provides easy to use tools for terrarium/aquarium/vivarium control and **automation** for the Raspberry Pi written in Python and based on [pimatic](https://github.com/pimatic/pimatic). TerraPiPy is short for "Terrarium + Raspberry Pi + Python". The core is written in Python and can be run on a Raspberry Pi to setup, monitor and **control** pilight to use many terrariums, aquariums and vivariums.
+# TerraPiPy Core, TerraPiPy Web and TerraPiPy Info
+**[TerraPiPy Core](https://github.com/spech66/terrapipy)** or just TerraPiPy is a collection of tools, pre defines configurations and articles for best practices to geht pimatic up and running. Optionally **[TerraPiPy Web](https://github.com/spech66/terrapipy-web)** shows the data on a beautiful **website**. With [TerraPiPy Info](https://github.com/spech66/terrapipy-info) the data can be send to external systems like an Arduino.
 
 ![Screenshot](https://github.com/spech66/terrapipy-web/blob/master/images/screenshot_001.png)
 
-# Features
+# Features of TerraPiPy Web
+**CURRENT STATUS: GUI PROTOTYPE**
 * Dashboard
 * Dashboard per terrarium, aquarium and vivarium
 * Sensor overview
