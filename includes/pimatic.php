@@ -7,9 +7,9 @@ if(basename($_SERVER['PHP_SELF']) == basename(__FILE__))
 ?>
 
 <?php
-function getPages($pimaticUsername, $pimaticPassword, $pimaticHost, $pimaticTerrariumKeyword)
+function getPimaticData($pimaticUsername, $pimaticPassword, $pimaticHost, $pimaticUrl)
 {
-	$pageUrl = "http://$pimaticUsername:$pimaticPassword@$pimaticHost/api/pages";
+	$pageUrl = "http://$pimaticUsername:$pimaticPassword@$pimaticHost$pimaticUrl";
 
 	$curl = curl_init();
 	$headers = array();
@@ -21,7 +21,12 @@ function getPages($pimaticUsername, $pimaticPassword, $pimaticHost, $pimaticTerr
 	$json = curl_exec($curl);
 	curl_close($curl);
 
-	$pageData = json_decode($json);
+	return json_decode($json);
+}
+
+function getPages($pimaticUsername, $pimaticPassword, $pimaticHost, $pimaticTerrariumKeyword)
+{
+	$pageData = getPimaticData($pimaticUsername, $pimaticPassword, $pimaticHost, "/api/pages");
 
 	$terrarium = array();	
 	foreach($pageData->pages as $page)
@@ -29,7 +34,7 @@ function getPages($pimaticUsername, $pimaticPassword, $pimaticHost, $pimaticTerr
 		if(stripos($page->id, $pimaticTerrariumKeyword) !== false ||
 			stripos($page->name, $pimaticTerrariumKeyword) !== false)
 		{
-			$terrarium[$page->id] = $page->name;
+			$terrarium[$page->id] = $page;
 		}
 	}
 	
@@ -39,4 +44,63 @@ function getPages($pimaticUsername, $pimaticPassword, $pimaticHost, $pimaticTerr
 
 	return $terrarium;
 }
+
+function getRules($pimaticUsername, $pimaticPassword, $pimaticHost)
+{
+	$pageData = getPimaticData($pimaticUsername, $pimaticPassword, $pimaticHost, "/api/rules");
+
+	$rules = array();	
+	foreach($pageData->rules as $rule)
+	{
+		$rules[$rule->id] = $rule;
+	}
+
+	return $rules;
+}
+
+function getVariables($pimaticUsername, $pimaticPassword, $pimaticHost)
+{
+	$pageData = getPimaticData($pimaticUsername, $pimaticPassword, $pimaticHost, "/api/variables");
+
+	$variables = array();	
+	foreach($pageData->variables as $variable)
+	{
+		$variables[$variable->id] = $variable;
+	}
+
+	return $variables;
+}
+
+function getDevices($pimaticUsername, $pimaticPassword, $pimaticHost)
+{
+	$pageData = getPimaticData($pimaticUsername, $pimaticPassword, $pimaticHost, "/api/devices");
+
+	$devices = array();	
+	foreach($pageData->devices as $device)
+	{
+		$devices[$device->id] = $device;
+	}
+
+	return $devices;
+}
+
+function deviceOnPage($deviceId, $pageId, $terrariumPages)
+{
+	foreach($terrariumPages as $tp)
+	{
+		if($pageId !== $tp->id)
+			continue;
+
+		foreach($tp->devices as $d)
+		{
+			//echo $d->deviceId."<br>";
+			//echo $deviceId."<br>";
+			if($d->deviceId === $deviceId)
+				return true;
+		}
+	}
+
+	return false;
+}
+
 ?>

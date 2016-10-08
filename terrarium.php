@@ -1,8 +1,19 @@
 <?php
 $pageTitle = 'Terrarium';
-$pageDescription = 'NAME_DES_RAUMS';
+$pageDescription = 'Daten des Terrariums';
 $pageSkin = 'green';
 require_once("_header.php") ?>
+
+<?php
+$id = htmlspecialchars($_GET['id']);
+$devices = getDevices($pimaticUsername, $pimaticPassword, $pimaticHost);
+?>
+
+<div class="row">
+	<div class="col-md-12">
+		<h2><?php echo $terrariumPages[$id]->name; ?></h2>
+	</div>
+</div>
 
 <div class="row">
 		<div class="col-md-6">
@@ -37,33 +48,28 @@ require_once("_header.php") ?>
           </div>
           <!-- /.box -->
         </div>		
-	</div>
+</div>
+
 
 	<div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner"><h3>30,1<sup style="font-size: 20px">&deg;C</sup></h3><p>Temperatur 1</p></div>
-            <div class="icon"><i class="ion ion-thermometer"></i></div>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner"><h3>28,5<sup style="font-size: 20px">&deg;C</sup></h3><p>Temperatur 2</p></div>
-            <div class="icon"><i class="ion ion-thermometer"></i></div>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner"><h3>26,2<sup style="font-size: 20px">&deg;C</sup></h3><p>Temperatur 3</p></div>
-            <div class="icon"><i class="ion ion-thermometer"></i></div>
-          </div>
-        </div>
-        <!-- ./col -->
+
+<?php
+	foreach($devices as $device)
+	{
+		if($device->template !== 'temperature')
+			continue;
+		if(!deviceOnPage($device->id, $id, $terrariumPages))
+			continue;
+
+	   echo '<div class="col-lg-3 col-xs-6">';
+	   echo '  <div class="small-box bg-red">';
+	   echo '    <div class="inner"><h3>'.$device->attributes[0]->value.'<sup style="font-size: 20px">'.$device->attributes[0]->unit.'</sup></h3><p>Temperatur 1</p></div>';
+	   echo '    <div class="icon"><i class="ion ion-thermometer"></i></div>';
+	   echo '  </div>';
+           echo '</div>';
+	}
+?>
+
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">

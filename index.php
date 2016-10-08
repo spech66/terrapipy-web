@@ -39,7 +39,7 @@ require_once("_header.php") ?>
 			{
 				echo '<div class="col-lg-6 col-xs-12">';
 				echo '  <div class="small-box bg-red">';
-				echo "	<div class=\"inner\"><h3>STATUS</h3><p>$name</p></div>";
+				echo "	<div class=\"inner\"><h3>STATUS</h3><p>$name->name</p></div>";
 				echo "	<div class=\"icon\"><i class=\"ion ion-thermometer\"></i></div>";
 				echo "	<a href=\"terrarium.php?id=$id\" class=\"small-box-footer\">Anschauen <i class=\"fa fa-arrow-circle-right\"></i></a>";
 				echo '  </div>';

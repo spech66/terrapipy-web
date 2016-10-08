@@ -16,7 +16,8 @@ require_once("includes/pimatic.php");
 
 if(isset($autoRefresh) && $autoRefresh > 0)
 {
-	header("Refresh: $autoRefresh; url=$page");
+	$query = $_SERVER['QUERY_STRING'];
+	header("Refresh: $autoRefresh; url=$page?$query");
 }
 ?>
 
@@ -84,7 +85,7 @@ SKINS: blue, black, purple, yellow, red, green
 	$terrariumPages = getPages($pimaticUsername, $pimaticPassword, $pimaticHost, $pimaticTerrariumKeyword);
 	foreach($terrariumPages as $id => $name)
 	{
-        	echo "<li><a href=\"terrarium.php?id=$id\"><i class=\"fa fa-paw\"></i> <span>$name</span></a></li>";
+        	echo "<li><a href=\"terrarium.php?id=$id\"><i class=\"fa fa-paw\"></i> <span>$name->name</span></a></li>";
 	}
 ?>
       </ul>
