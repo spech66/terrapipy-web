@@ -5,7 +5,14 @@ if(basename($_SERVER['PHP_SELF']) == basename(__FILE__))
 	exit;
 }
 ?>
+
 	  
+      <div class="row">
+        <div class="col-md-12 text-center">
+	  <img src="images/logo.png">
+        </div>
+      </div>
+
     </section>
     <!-- /.content -->
   </div>

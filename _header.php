@@ -52,11 +52,11 @@ SKINS: blue, black, purple, yellow, red, green
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>T</b>PP</span>
+      <span class="logo-mini"><img src="images/logo.png" width="50"><!--<b>T</b>PP--></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Terra</b>PiPy</span>
+      <span class="logo-lg"><img src="images/logo.png" width="50"> <b>Terra</b>PiPy</span>
     </a>
 
     <!-- Header Navbar -->

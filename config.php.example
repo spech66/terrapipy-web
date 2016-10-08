@@ -30,7 +30,7 @@ $autoRefresh = '30';
 // pimatic data
 $pimaticUsername = 'admin';
 $pimaticPassword = 'XXXXXXXXXXXXXXXXXXX';
-$pimaticHost = '127.0.0.1:80';
+$pimaticHost = '127.0.0.1:8080';
 
 // Only include pimatic pages with the keyword in name or id
 $pimaticTerrariumKeyword = 'terrarium';

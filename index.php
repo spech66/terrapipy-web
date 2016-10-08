@@ -33,6 +33,19 @@ require_once("_header.php") ?>
 	<div class="col-md-6">  
   
 		<div class="row">
+<?php
+			$terrariumPages = getPages($pimaticUsername, $pimaticPassword, $pimaticHost, $pimaticTerrariumKeyword);
+			foreach($terrariumPages as $id => $name)
+			{
+				echo '<div class="col-lg-6 col-xs-12">';
+				echo '  <div class="small-box bg-red">';
+				echo "	<div class=\"inner\"><h3>STATUS</h3><p>$name</p></div>";
+				echo "	<div class=\"icon\"><i class=\"ion ion-thermometer\"></i></div>";
+				echo "	<a href=\"terrarium.php?id=$id\" class=\"small-box-footer\">Anschauen <i class=\"fa fa-arrow-circle-right\"></i></a>";
+				echo '  </div>';
+				echo '</div>';
+			}
+?>
 			<div class="col-lg-6 col-xs-12">
 			  <!-- small box -->
 			  <div class="small-box bg-red">
@@ -73,12 +86,6 @@ require_once("_header.php") ?>
 
 	</div>
 	<!-- /.col -->
-</div>
-	  
-<div class="row">
-        <div class="col-md-12">
-		<img src="images/logo.png">
-	</div>
 </div>
 
 <?php require_once("_footer.php") ?>
