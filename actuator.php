@@ -48,7 +48,7 @@ usort($devices, function($a, $b) {
 		} else if($device->template === 'switch') {
 			echo '<div class="col-lg-3 col-xs-6">';
 			echo '  <div class="small-box bg-green">';
-			echo '	<div class="inner"><h3>'.$device->attributes[0]->labels[$device->attributes[0]->value].'</h3><p>'.$device->name.'</p></div>';
+			echo '	<div class="inner"><h3>'.$device->attributes[0]->labels[!$device->attributes[0]->value].'</h3><p>'.$device->name.'</p></div>';
 			if($device->attributes[0]->value == 1) {
 				echo '	<div class="icon"><i class="ion ion-toggle-filled"></i></div>';
 			} else {
