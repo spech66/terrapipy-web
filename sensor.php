@@ -26,9 +26,15 @@ $devices = getDevices($pimaticUsername, $pimaticPassword, $pimaticHost);
 	   echo '      <div class="row">';
 	   echo '        <div class="col-lg-3">';
 	   echo '          <div class="small-box bg-red">';
-	   echo '            <div class="inner"><h3>'.$device->attributes[0]->value.'<sup style="font-size: 20px">'.$device->attributes[0]->unit.'</sup></h3><p>Temperatur 1</p></div>';
+	   echo '            <div class="inner"><h3>'.round($device->attributes[0]->value, 1).'<sup style="font-size: 20px">'.$device->attributes[0]->unit.'</sup></h3><p>'.$device->name.'</p></div>';
 	   echo '            <div class="icon"><i class="ion ion-thermometer"></i></div>';
 	   echo '          </div>';
+	   if(array_key_exists(1, $device->attributes)) {
+	       echo '          <div class="small-box bg-aqua">';
+	       echo '            <div class="inner"><h3>'.round($device->attributes[1]->value, 1).'<sup style="font-size: 20px">'.$device->attributes[1]->unit.'</sup></h3><p>'.$device->name.'</p></div>';
+	       echo '            <div class="icon"><i class="ion ion-waterdrop"></i></div>';
+	       echo '          </div>';
+	   }
            echo '        </div>';
 	   echo '        <div class="col-lg-9">';
 	   echo '          <div class="chart">';
@@ -62,7 +68,17 @@ $data = '';
     {
         //$labels .= '"'.date('d.m.Y H:i', $history->t/1000).'",';
 	$labels .= '"'.date('H:i', $history->t/1000).'",';
-        $data .= $history->v.',';
+        $data .= round($history->v, 2).',';
+    }
+
+$labels2 = '';
+$data2 = '';
+    if(array_key_exists(1, $device->attributes)) {
+        foreach($device->attributes[1]->history as $history)
+        {
+            $labels2 .= '"'.date('H:i', $history->t/1000).'",';
+            $data2 .= round($history->v, 2).',';
+        }
     }
 
     $footerDataDyn .= 'var lineChartData'.$ids.' = {'."\r\n";
@@ -70,14 +86,29 @@ $data = '';
     $footerDataDyn .= '  datasets: ['."\r\n";
     $footerDataDyn .= '  {'."\r\n";
     $footerDataDyn .= '    label: "Temperatur",'."\r\n";
-    $footerDataDyn .= '    fillColor: "rgba(210, 214, 222, 1)",'."\r\n";
-    $footerDataDyn .= '    strokeColor: "rgba(210, 214, 222, 1)",'."\r\n";
-    $footerDataDyn .= '    pointColor: "rgba(210, 214, 222, 1)",'."\r\n";
-    $footerDataDyn .= '    pointStrokeColor: "#c1c7d1",'."\r\n";
+    $footerDataDyn .= '    fillColor: "#dd4b39",'."\r\n";
+    $footerDataDyn .= '    strokeColor: "#dd4b39",'."\r\n";
+    $footerDataDyn .= '    pointColor: "#dd4b39",'."\r\n";
+    $footerDataDyn .= '    pointStrokeColor: "#dd4b39",'."\r\n";
     $footerDataDyn .= '    pointHighlightFill: "#fff",'."\r\n";
-    $footerDataDyn .= '    pointHighlightStroke: "rgba(220,220,220,1)",'."\r\n";
+    $footerDataDyn .= '    pointHighlightStroke: "#dd4b39",'."\r\n";
     $footerDataDyn .= "    data: [$data],\r\n";
-    $footerDataDyn .= '  }]'."\r\n";
+    $footerDataDyn .= '  }'."\r\n";
+
+    if(array_key_exists(1, $device->attributes)) {
+    $footerDataDyn .= '  ,{'."\r\n";
+    $footerDataDyn .= '    label: "Luftfeuchtigkeit",'."\r\n";
+    $footerDataDyn .= '    fillColor: "#00c0ef",'."\r\n";
+    $footerDataDyn .= '    strokeColor: "#00c0ef",'."\r\n";
+    $footerDataDyn .= '    pointColor: "#00c0ef",'."\r\n";
+    $footerDataDyn .= '    pointStrokeColor: "#00c0ef",'."\r\n";
+    $footerDataDyn .= '    pointHighlightFill: "#fff",'."\r\n";
+    $footerDataDyn .= '    pointHighlightStroke: "#00c0ef",'."\r\n";
+    $footerDataDyn .= "    data: [$data2],\r\n";
+    $footerDataDyn .= '  }'."\r\n";
+    }
+
+    $footerDataDyn .= '  ]'."\r\n";
     $footerDataDyn .= '};'."\r\n";
 
     $footerDataDyn .= 'var lineChartCanvas = $("#lineChart-'.$device->id.'").get(0).getContext("2d");'."\r\n";
