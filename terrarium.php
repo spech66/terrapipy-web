@@ -50,61 +50,21 @@ $devices = getDevices($pimaticUsername, $pimaticPassword, $pimaticHost);
         </div>		
 </div>
 
+<div class="row">
+	<?php
+	usort($devices, function($b, $a) { // Reversed b/a so that the "ugly" devices are on the bottom
+		return strcmp($a->template, $b->template);
+	});
 
-	<div class="row">
-
-<?php
 	foreach($devices as $device)
 	{
-		if($device->template !== 'temperature')
-			continue;
 		if(!deviceOnPage($device->id, $id, $terrariumPages))
 			continue;
 
-	   echo '<div class="col-lg-3 col-xs-6">';
-	   echo '  <div class="small-box bg-red">';
-	   echo '    <div class="inner"><h3>'.round($device->attributes[0]->value, 1).'<sup style="font-size: 20px">'.$device->attributes[0]->unit.'</sup></h3><p>'.$device->name.'</p></div>';
-	   echo '    <div class="icon"><i class="ion ion-thermometer"></i></div>';
-	   echo '  </div>';
-           echo '</div>';
-
-	   if(array_key_exists(1, $device->attributes)) {
-		echo '<div class="col-lg-3 col-xs-6">';
-		echo '  <div class="small-box bg-aqua">';
-		echo '	<div class="inner"><h3>'.round($device->attributes[1]->value, 1).'<sup style="font-size: 20px">'.$device->attributes[1]->unit.'</sup></h3><p>'.$device->name.'</p></div>';
-		echo '	<div class="icon"><i class="ion ion-waterdrop"></i></div>';
-		echo '  </div>';
-		echo '</div>';
-	    }
+   		renderActuator($device);
 	}
-?>
-
-	</div>
-
-	<div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner"><h3>AN</h3><p>Beleuchtung</p></div>
-            <div class="icon"><i class="ion ion-ios-lightbulb-outline"></i></div>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner"><h3>AN</h3><p>Strahler</p></div>
-            <div class="icon"><i class="ion ion-flame"></i></div>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-        </div>
-        <!-- ./col -->
-	</div>
+	?>
+</div>
 
 	<div class="row">
 		<div class="col-md-12">
