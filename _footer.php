@@ -25,7 +25,7 @@ if(basename($_SERVER['PHP_SELF']) == basename(__FILE__))
       <?php echo "Status " . date('d.m.Y H:i') ?>
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Sebastian Pech</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2018 <a href="http://www.spech.de">Sebastian Pech</a>.</strong> All rights reserved.
   </footer>
 
 </div>
