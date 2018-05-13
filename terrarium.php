@@ -15,7 +15,7 @@ $devices = getDevices($pimaticUsername, $pimaticPassword, $pimaticHost);
 	</div>
 </div>
 
-<div class="row">
+<!--<div class="row">
 		<div class="col-md-6">
 			<div class="box box-solid">
 				<div class="box-body">
@@ -29,7 +29,6 @@ $devices = getDevices($pimaticUsername, $pimaticPassword, $pimaticHost);
               <i class="fa fa-book"></i>
               <h3 class="box-title">Schlangen</h3>
             </div>
-            <!-- /.box-header -->
             <div class="box-body">
 				<dl class="dl-horizontal">
 					<dt>Art</dt>
@@ -44,11 +43,9 @@ $devices = getDevices($pimaticUsername, $pimaticPassword, $pimaticHost);
 					  sit amet risus.</dd>
 				</dl>
             </div>
-            <!-- /.box-body -->
           </div>
-          <!-- /.box -->
         </div>		
-</div>
+</div>-->
 
 <div class="row">
 	<?php
@@ -66,34 +63,25 @@ $devices = getDevices($pimaticUsername, $pimaticPassword, $pimaticHost);
 	?>
 </div>
 
-	<div class="row">
-		<div class="col-md-12">
-		  <!-- LINE CHART -->
-		  <div class="box box-info">
-			<div class="box-header with-border">
-			  <h3 class="box-title">Temperatur und Luftfeuchtigkeit</h3>
+<?php
+	$footerDataDyn = "";
+	$ids = 0;
 
-			  <div class="box-tools pull-right">
-				<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-				</button>
-				<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-			  </div>
-			</div>
-			<div class="box-body">
-			  <div class="chart">
-				<canvas id="lineChart" style="height:250px"></canvas>
-			  </div>
-			</div>
-			<!-- /.box-body -->
-		  </div>
-		  <!-- /.box -->
-		</div>
-	</div>
-	<!-- /.row -->
+	foreach($devices as $device)
+	{
+		if($device->template !== 'temperature')
+			continue;
+		if(!deviceOnPage($device->id, $id, $terrariumPages))
+			continue;
+
+	   renderGraph($device);
+	   $footerDataDyn = generateGraphData($device, $ids, $footerDataDyn);
+	   $ids++;
+	}
+?>
 	
-	<div class="row">
+	<!--<div class="row">
 		<div class="col-md-12">
-		  <!-- LINE CHART -->
 		  <div class="box box-info">
 			<div class="box-header with-border">
 			  <h3 class="box-title">Steuerung</h3>
@@ -105,64 +93,18 @@ $devices = getDevices($pimaticUsername, $pimaticPassword, $pimaticHost);
 				<a class="btn btn-app" href="terrariumconfig.php"><i class="icon ion ion-settings"></i> Konfiguration</a>
 			  
 			</div>
-			<!-- /.box-body -->
 		  </div>
-		  <!-- /.box -->
 		</div>
-	</div>
-	<!-- /.row -->
+	</div>-->
 
 <?php
-$footerJs = <<<'EOT'
+$footerJs = <<<EOT
 <!-- ChartJS 1.0.1 -->
 <script src="adminlte/plugins/chartjs/Chart.min.js"></script>
 
 <!-- page script -->
 <script>
   $(function () {
-    /* ChartJS
-     * -------
-     * Here we will create a few charts using ChartJS
-     */
-
-    //--------------
-    //- LINE CHART -
-    //--------------	
-    var lineChartData = {
-      labels: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli"],
-      datasets: [
-        {
-          label: "Temperatur",
-          fillColor: "rgba(210, 214, 222, 1)",
-          strokeColor: "rgba(210, 214, 222, 1)",
-          pointColor: "rgba(210, 214, 222, 1)",
-          pointStrokeColor: "#c1c7d1",
-          pointHighlightFill: "#fff",
-          pointHighlightStroke: "rgba(220,220,220,1)",
-          data: [33, 30, 34, 28, 12, 22, 33]
-        },
-        {
-          label: "Luftfeuchtigkeit",
-          fillColor: "rgba(60,141,188,0.9)",
-          strokeColor: "rgba(60,141,188,0.8)",
-          pointColor: "#3b8bba",
-          pointStrokeColor: "rgba(60,141,188,1)",
-          pointHighlightFill: "#fff",
-          pointHighlightStroke: "rgba(60,141,188,1)",
-          data: [28, 48, 40, 19, 86, 27, 90]
-        },
-        {
-          label: "Temperatur MAX",
-          fillColor: "rgba(255,0,0,0.9)",
-          strokeColor: "rgba(255,0,0,0.8)",
-          pointColor: "#ff0000",
-          pointStrokeColor: "rgba(255,0,0,1)",
-          pointHighlightFill: "#fff",
-          pointHighlightStroke: "rgba(255,0,0,1)",
-          data: [33, 33, 33, 33, 33, 33, 33]
-        }
-      ]
-    };
 
     var lineChartOptions = {
       //Boolean - If we should show the scale at all
@@ -202,10 +144,8 @@ $footerJs = <<<'EOT'
       //Boolean - whether to make the chart responsive to window resizing
       responsive: true
     };
-	
-    var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
-    var lineChart = new Chart(lineChartCanvas);
-    lineChart.Line(lineChartData, lineChartOptions);
+
+    $footerDataDyn
   });
 </script>
 EOT;
