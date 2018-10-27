@@ -5,7 +5,7 @@ The system can be run on a Raspberry Pi to setup, monitor and **control** [pimat
 :sunny: :cloud: :crescent_moon: :arrow_right: :zap: :arrow_right: :snake: :tropical_fish: :turtle: :frog: :arrow_right: :heart_eyes:
 
 # TerraPiPy Core, TerraPiPy Web and TerraPiPy Info
-**[TerraPiPy Core](https://github.com/spech66/terrapipy)** or just TerraPiPy is a collection of tools, pre defines configurations and articles for best practices to geht pimatic up and running. Optionally **[TerraPiPy Web](https://github.com/spech66/terrapipy-web)** shows the data on a beautiful **website**. With [TerraPiPy Info](https://github.com/spech66/terrapipy-info) the data can be send to external systems like an Arduino.
+**[TerraPiPy Core](https://github.com/spech66/terrapipy)** or just TerraPiPy is a collection of tools, pre defines configurations and articles for best practices to geht pimatic up and running. Optionally **[TerraPiPy Web](https://github.com/spech66/terrapipy-web)** shows the data on a beautiful **website**.
 
 ![Screenshot](https://github.com/spech66/terrapipy-web/blob/master/images/screenshot_001.png)
 
